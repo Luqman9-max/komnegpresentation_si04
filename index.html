@@ -6,275 +6,331 @@
 <title>Sosialisasi Prodi SI — AMIKOM Yogyakarta</title>
 <meta name="description" content="Laporan Kegiatan Sosialisasi Program Studi Sistem Informasi di SMA Negeri 11 Yogyakarta">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0D1B2A;--bg2:#1B2838;--accent:#00C2FF;--violet:#7B2FBE;--grad:linear-gradient(135deg,#00C2FF,#7B2FBE);--text:#E0E6ED;--muted:#8899AA;--card:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);--radius:16px;--font-head:'Space Grotesk',sans-serif;--font-body:'Inter',sans-serif}
-html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:var(--font-body)}
-#particles{position:fixed;inset:0;z-index:0;pointer-events:none}
-#progress-bar{position:fixed;top:0;left:0;width:100%;height:4px;z-index:100;background:rgba(255,255,255,.08)}
-#progress-fill{height:100%;width:10%;background:var(--grad);transition:width .4s ease;border-radius:0 2px 2px 0}
-#slide-counter{position:fixed;top:16px;right:24px;z-index:100;font:500 14px/1 var(--font-body);color:var(--muted);background:rgba(13,27,42,.7);padding:6px 14px;border-radius:20px;backdrop-filter:blur(8px);border:1px solid var(--border)}
-#deck{position:relative;width:100%;height:100vh;overflow:hidden}
-.slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:60px 80px;opacity:0;transform:translateX(80px);transition:opacity .45s ease,transform .45s ease;pointer-events:none;z-index:1}
-.slide.active{opacity:1;transform:translateX(0);pointer-events:auto;z-index:2}
-.slide.exit-left{opacity:0;transform:translateX(-80px)}
-.watermark{position:absolute;top:20px;left:28px;font:500 13px/1 var(--font-head);color:rgba(255,255,255,.12);letter-spacing:1px;text-transform:uppercase}
-h1{font:700 clamp(28px,4vw,52px)/1.15 var(--font-head);background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center;margin-bottom:10px}
-h2{font:700 clamp(24px,3.2vw,42px)/1.2 var(--font-head);color:#fff;text-align:center;margin-bottom:8px}
-h3{font:600 clamp(16px,1.8vw,22px)/1.3 var(--font-head);color:var(--accent);margin-bottom:6px}
-.subtitle{font:400 clamp(14px,1.6vw,20px)/1.5 var(--font-body);color:var(--muted);text-align:center;max-width:700px}
-.badge{display:inline-block;padding:6px 18px;border-radius:20px;font:600 13px/1 var(--font-body);background:var(--grad);color:#fff;margin:8px 4px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;backdrop-filter:blur(12px);transition:transform .25s,box-shadow .25s}
-.card:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 12px 40px rgba(0,194,255,.12)}
+:root{--bg:#080B12;--bg2:#0E1420;--cyan:#00F5D4;--amber:#FFB703;--text:#E0E8F0;--muted:#6B7B8D;
+--card:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08);--radius:16px;
+--font-head:'Sora',sans-serif;--font-body:'DM Sans',sans-serif;--font-num:'Space Grotesk',sans-serif}
+html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:var(--font-body);-webkit-font-smoothing:antialiased}
+.bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;
+background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+background-size:60px 60px;opacity:.5;animation:gridDrift 30s linear infinite}
+@keyframes gridDrift{to{transform:translate(60px,60px)}}
+.bg-blob{position:fixed;border-radius:50%;filter:blur(100px);pointer-events:none;z-index:0}
+.bg-blob.b1{width:600px;height:400px;background:rgba(0,245,212,.06);top:10%;left:5%}
+.bg-blob.b2{width:500px;height:500px;background:rgba(255,183,3,.04);bottom:10%;right:5%}
+#particles{position:fixed;inset:0;z-index:1;pointer-events:none}
+#progress-bar{position:fixed;top:0;left:0;width:100%;height:3px;z-index:300;background:rgba(255,255,255,.05)}
+#progress-fill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--amber));transition:width .45s cubic-bezier(.25,.46,.45,.94)}
+#slide-counter{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);z-index:300;font:500 15px/1 var(--font-num);color:var(--muted);letter-spacing:3px}
+#deck{position:relative;width:100%;height:100vh;overflow:hidden;z-index:2}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;
+padding:60px 80px;opacity:0;pointer-events:none;z-index:1;will-change:transform,opacity}
+.slide.active{opacity:1;pointer-events:auto;z-index:2}
+.slide::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+background:linear-gradient(90deg,transparent,var(--cyan),transparent);box-shadow:0 0 15px rgba(0,245,212,.3);opacity:.6}
+.slide.enter-right{animation:enterR .45s cubic-bezier(.25,.46,.45,.94) forwards}
+.slide.enter-left{animation:enterL .45s cubic-bezier(.25,.46,.45,.94) forwards}
+.slide.exit-right{animation:exitR .45s cubic-bezier(.25,.46,.45,.94) forwards}
+.slide.exit-left{animation:exitL .45s cubic-bezier(.25,.46,.45,.94) forwards}
+@keyframes enterR{from{opacity:0;transform:translateX(100%)}to{opacity:1;transform:translateX(0)}}
+@keyframes enterL{from{opacity:0;transform:translateX(-100%)}to{opacity:1;transform:translateX(0)}}
+@keyframes exitR{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(100%)}}
+@keyframes exitL{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(-100%)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.anim-item{opacity:0}
+.slide.active .anim-item{animation:fadeUp .5s ease forwards}
+.watermark{position:absolute;top:20px;left:28px;font:600 11px/1 var(--font-body);color:rgba(255,255,255,.1);letter-spacing:2px;text-transform:uppercase}
+h1{font:800 clamp(28px,4vw,52px)/1.1 var(--font-head);text-align:center;margin-bottom:12px;
+background:linear-gradient(135deg,var(--cyan),#00D4AA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+filter:drop-shadow(0 0 30px rgba(0,245,212,.2))}
+h2{font:700 clamp(24px,3.2vw,42px)/1.2 var(--font-head);color:#fff;text-align:center;margin-bottom:10px}
+h3{font:600 clamp(14px,1.6vw,20px)/1.3 var(--font-head);color:var(--cyan);margin-bottom:6px}
+.subtitle{font:400 clamp(14px,1.5vw,18px)/1.6 var(--font-body);color:var(--muted);text-align:center;max-width:700px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+padding:24px 20px;backdrop-filter:blur(12px);transition:transform .25s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 12px 40px rgba(0,245,212,.1)}
 .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;width:100%;max-width:900px}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:100%;max-width:1000px}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;width:100%;max-width:1050px}
 .grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;width:100%;max-width:1100px}
-.icon-lg{font-size:36px;margin-bottom:10px}
-.point{font:400 15px/1.6 var(--font-body);color:var(--text);padding:6px 0}
-.anim-item{opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease}
-.slide.active .anim-item{opacity:1;transform:translateY(0)}
-.nav-btn{position:fixed;bottom:32px;z-index:100;width:48px;height:48px;border-radius:50%;border:1px solid var(--border);background:rgba(13,27,42,.75);color:#fff;font-size:20px;cursor:pointer;backdrop-filter:blur(8px);transition:background .2s,transform .2s}
-.nav-btn:hover{background:rgba(0,194,255,.2);transform:scale(1.1)}
-#prev-btn{left:32px}
-#next-btn{right:32px}
-#dots{position:fixed;bottom:36px;left:50%;transform:translateX(-50%);z-index:100;display:flex;gap:8px}
-.dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.2);cursor:pointer;transition:background .3s,transform .3s}
-.dot.active{background:var(--accent);transform:scale(1.3)}
-.photo-circle{width:120px;height:120px;border-radius:50%;border:2px dashed var(--muted);background:rgba(255,255,255,.04);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--muted);font-size:13px;gap:4px}
-.photo-circle svg{width:32px;height:32px;stroke:var(--muted);fill:none;stroke-width:1.5}
-.photo-rect{width:100%;aspect-ratio:16/9;border-radius:12px;border:2px dashed var(--muted);background:rgba(255,255,255,.04);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted);font-size:13px;gap:6px}
-.photo-rect svg{width:36px;height:36px;stroke:var(--muted);fill:none;stroke-width:1.5}
+.icon-lg{font-size:32px;margin-bottom:8px}
+.point{font:400 14px/1.65 var(--font-body);color:var(--text);padding:4px 0}
+.nav-btn{position:fixed;bottom:28px;z-index:300;width:52px;height:52px;border-radius:50%;
+border:1px solid rgba(0,245,212,.3);background:rgba(8,11,18,.8);color:#fff;font-size:20px;
+cursor:pointer;backdrop-filter:blur(12px);transition:all .25s ease;display:flex;align-items:center;justify-content:center}
+.nav-btn:hover{border-color:var(--cyan);box-shadow:0 0 20px rgba(0,245,212,.3);transform:scale(1.08)}
+.nav-btn.dimmed{opacity:.3}
+#prev-btn{left:28px}
+#next-btn{right:28px}
+#next-btn.finish{width:auto;border-radius:26px;padding:0 20px;font:600 14px/52px var(--font-body)}
 .member-card{text-align:center}
-.member-card .name{font:600 16px/1.3 var(--font-head);color:#fff;margin-bottom:2px}
-.member-card .nim{font:400 13px/1 var(--font-body);color:var(--accent);margin-bottom:6px}
+.photo-circle{width:110px;height:110px;border-radius:50%;margin:0 auto 12px;overflow:hidden;
+border:2px solid rgba(0,245,212,.4);box-shadow:0 0 20px rgba(0,245,212,.15)}
+.photo-circle img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.member-card .name{font:600 15px/1.3 var(--font-head);color:#fff;margin-bottom:2px}
+.member-card .nim{font:500 13px/1 var(--font-num);color:var(--cyan);margin-bottom:6px}
 .member-card .role{font:400 13px/1.4 var(--font-body);color:var(--muted)}
-.achieve-num{font:700 clamp(32px,4vw,56px)/1 var(--font-head);background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.timeline{display:flex;gap:0;width:100%;max-width:900px;position:relative}
-.timeline::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:3px;background:var(--border)}
-.phase{flex:1;text-align:center;position:relative;padding:0 12px}
-.phase-num{width:56px;height:56px;border-radius:50%;background:var(--grad);color:#fff;font:700 20px/56px var(--font-head);margin:0 auto 14px;position:relative;z-index:2}
-.problem-row{display:flex;gap:8px;align-items:flex-start;margin-bottom:6px}
-.problem-row .icon{font-size:20px;flex-shrink:0;width:28px}
-.highlight-box{background:linear-gradient(135deg,rgba(0,194,255,.12),rgba(123,47,190,.12));border:1px solid rgba(0,194,255,.25);border-radius:var(--radius);padding:20px 24px;margin-top:12px;max-width:800px;width:100%}
-.quote-icon{font-size:48px;color:rgba(0,194,255,.2);line-height:1;margin-bottom:8px}
-.suggestion-box{background:rgba(0,194,255,.08);border-left:3px solid var(--accent);padding:16px 20px;border-radius:0 12px 12px 0;margin:12px 0;max-width:700px}
-.medal{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#FFD700,#FFA500);display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 12px;box-shadow:0 0 30px rgba(255,215,0,.3)}
-.closing-msg{font:700 clamp(18px,2.5vw,30px)/1.4 var(--font-head);text-align:center;color:#fff;margin:20px 0}
 .split{display:flex;gap:40px;width:100%;max-width:1000px;align-items:center}
 .split-left,.split-right{flex:1}
-.info-bar{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:24px;width:100%;max-width:900px}
-.info-tag{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 16px;font:400 14px/1.3 var(--font-body);backdrop-filter:blur(8px)}
-.info-tag strong{color:var(--accent);margin-right:6px}
-.green{color:#4ADE80}.orange{color:#FB923C}.blue{color:var(--accent)}
-.result-tag{font:500 13px/1.4 var(--font-body);margin-top:8px}
+.problem-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px}
+.problem-row .icon{font-size:20px;flex-shrink:0;width:28px}
+.timeline{display:flex;gap:0;width:100%;max-width:900px;position:relative}
+.timeline::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:2px;background:rgba(0,245,212,.2)}
+.phase{flex:1;text-align:center;position:relative;padding:0 12px}
+.phase-num{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),#00D4AA);
+color:var(--bg);font:800 20px/56px var(--font-num);margin:0 auto 14px;position:relative;z-index:2;box-shadow:0 0 20px rgba(0,245,212,.2)}
+.info-bar{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-bottom:24px;width:100%;max-width:900px}
+.info-tag{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 16px;font:400 13px/1.3 var(--font-body);backdrop-filter:blur(8px)}
+.info-tag strong{color:var(--cyan);margin-right:6px}
+.photo-rect{width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden}
+.photo-rect img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+.medal{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#FFD700,#FFA500);
+display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 12px;
+box-shadow:0 0 40px rgba(255,215,0,.35);animation:medalPulse 2s ease-in-out infinite}
+@keyframes medalPulse{0%,100%{box-shadow:0 0 30px rgba(255,215,0,.3)}50%{box-shadow:0 0 50px rgba(255,215,0,.5)}}
+.highlight-box{background:linear-gradient(135deg,rgba(0,245,212,.08),rgba(255,183,3,.06));
+border:1px solid rgba(0,245,212,.2);border-radius:var(--radius);padding:20px 24px;margin-top:16px;max-width:800px;width:100%}
+.quote-icon{font-size:48px;color:rgba(0,245,212,.15);line-height:1;margin-bottom:8px}
+.suggestion-box{background:rgba(255,183,3,.06);border-left:3px solid var(--amber);padding:16px 20px;border-radius:0 12px 12px 0;margin:12px 0;max-width:700px}
+.closing-msg{font:700 clamp(18px,2.5vw,28px)/1.4 var(--font-head);text-align:center;color:#fff;margin:20px 0}
 .footer-credit{position:absolute;bottom:20px;font:400 12px/1 var(--font-body);color:var(--muted);text-align:center}
+.green{color:#4ADE80}.orange{color:#FB923C}.blue{color:var(--cyan)}
+.result-tag{font:500 13px/1.4 var(--font-body);margin-top:8px}
+.slide[data-slide="4"]::before,.slide[data-slide="5"]::before{background:linear-gradient(90deg,transparent,var(--amber),transparent);box-shadow:0 0 15px rgba(255,183,3,.3)}
 @media(max-width:768px){
-.slide{padding:50px 24px}
-.grid2,.grid3,.grid4,.grid5{grid-template-columns:1fr}
-.split{flex-direction:column;gap:20px}
-.timeline{flex-direction:column;gap:20px}
-.timeline::before{display:none}
-.nav-btn{bottom:16px;width:40px;height:40px;font-size:16px}
-#prev-btn{left:16px}#next-btn{right:16px}
-.info-bar{flex-direction:column;align-items:stretch}
-}
-@media(max-width:480px){
-.slide{padding:40px 16px}
-h1{font-size:24px}h2{font-size:20px}
-}
+.slide{padding:50px 20px}.grid2,.grid3,.grid5{grid-template-columns:1fr}
+.split{flex-direction:column;gap:20px}.timeline{flex-direction:column;gap:20px}
+.timeline::before{display:none}.nav-btn{bottom:16px;width:44px;height:44px}
+#prev-btn{left:16px}#next-btn{right:16px}.info-bar{flex-direction:column;align-items:stretch}}
+@media(max-width:480px){.slide{padding:40px 14px}h1{font-size:22px}h2{font-size:18px}}
 </style>
 </head>
 <body>
+<div class="bg-grid"></div>
+<div class="bg-blob b1"></div>
+<div class="bg-blob b2"></div>
 <div id="progress-bar"><div id="progress-fill"></div></div>
-<div id="slide-counter">Slide 1 / 9</div>
+<div id="slide-counter">01 / 09</div>
 <canvas id="particles"></canvas>
 <div id="deck">
 <!-- SLIDE 1: COVER -->
 <div class="slide active" data-slide="0">
 <span class="watermark">Universitas AMIKOM Yogyakarta</span>
-<h1 class="anim-item" style="transition-delay:.1s">Sosialisasi Program Studi<br>Sistem Informasi</h1>
-<h2 class="anim-item" style="transition-delay:.2s;font-size:clamp(16px,2vw,26px);color:var(--accent)">di SMA Negeri 11 Yogyakarta</h2>
-<p class="subtitle anim-item" style="transition-delay:.3s">Laporan Kegiatan — Mata Kuliah Komunikasi dan Negosiasi</p>
-<p class="subtitle anim-item" style="transition-delay:.35s;font-size:14px">Fakultas Ilmu Komputer, Universitas AMIKOM Yogyakarta — 2026</p>
-<div class="grid3 anim-item" style="transition-delay:.5s;margin-top:32px">
-<div class="card member-card"><div class="photo-circle" style="border:none; background:none" data-photo-id="ahmad"><img src="https://lh3.googleusercontent.com/u/0/d/1QDlfRJRWtnF7tZLs-vw88kISP0Dq3PSi" alt="Ahmad" style="width:100%; height:100%; object-fit:cover; border-radius:50%"></div><div class="name">Ahmad Syahri Romadlon</div><div class="nim">24.12.3323</div><div class="role">Koordinator Pelaksana</div></div>
-<div class="card member-card"><div class="photo-circle" style="border:none; background:none" data-photo-id="luqman"><img src="https://lh3.googleusercontent.com/u/0/d/1PV9MSaY1A2O2gLFwmBvXVsTQErtICieO" alt="Luqman" style="width:100%; height:100%; object-fit:cover; border-radius:50%"></div><div class="name">Luqman Adiwidya</div><div class="nim">24.12.3280</div><div class="role">Presenter</div></div>
-<div class="card member-card"><div class="photo-circle" style="border:none; background:none" data-photo-id="indra"><img src="https://lh3.googleusercontent.com/u/0/d/17K-TRdyeOcWl6nF12xaWjDUU8RdCrjyg" alt="Indra" style="width:100%; height:100%; object-fit:cover; border-radius:50%"></div><div class="name">Indra Arya Pratama</div><div class="nim">24.12.3286</div><div class="role">Presenter</div></div>
-</div>
-</div>
+<h1 class="anim-item" style="animation-delay:0ms">Sosialisasi Program Studi<br>Sistem Informasi</h1>
+<h2 class="anim-item" style="animation-delay:80ms;font-size:clamp(16px,2vw,26px);color:var(--cyan)">di SMA Negeri 11 Yogyakarta</h2>
+<p class="subtitle anim-item" style="animation-delay:160ms">Laporan Kegiatan — Mata Kuliah Komunikasi dan Negosiasi</p>
+<p class="subtitle anim-item" style="animation-delay:200ms;font-size:14px">Fakultas Ilmu Komputer, Universitas AMIKOM Yogyakarta — 2026</p>
+<div class="grid3 anim-item" style="animation-delay:320ms;margin-top:32px">
+<div class="card member-card"><div class="photo-circle"><img src="https://lh3.googleusercontent.com/u/0/d/1QDlfRJRWtnF7tZLs-vw88kISP0Dq3PSi" alt="Ahmad"></div><div class="name">Ahmad Syahri Romadlon</div><div class="nim">24.12.3323</div><div class="role">Koordinator Pelaksana</div></div>
+<div class="card member-card"><div class="photo-circle"><img src="https://lh3.googleusercontent.com/u/0/d/1PV9MSaY1A2O2gLFwmBvXVsTQErtICieO" alt="Luqman"></div><div class="name">Luqman Adiwidya</div><div class="nim">24.12.3280</div><div class="role">Presenter</div></div>
+<div class="card member-card"><div class="photo-circle"><img src="https://lh3.googleusercontent.com/u/0/d/17K-TRdyeOcWl6nF12xaWjDUU8RdCrjyg" alt="Indra"></div><div class="name">Indra Arya Pratama</div><div class="nim">24.12.3286</div><div class="role">Presenter</div></div>
+</div></div>
 
 <!-- SLIDE 2: LATAR BELAKANG -->
 <div class="slide" data-slide="1">
 <span class="watermark">Sosialisasi Prodi SI — AMIKOM</span>
-<h2 class="anim-item" style="transition-delay:.1s">Latar Belakang</h2>
-<div class="split anim-item" style="transition-delay:.2s">
+<h2 class="anim-item" style="animation-delay:0ms">Latar Belakang</h2>
+<div class="split anim-item" style="animation-delay:80ms">
 <div class="split-left" style="text-align:center">
 <div style="font-size:72px;margin-bottom:16px">🎓</div>
 <p class="subtitle" style="font-style:italic;font-size:15px">Siswa SMA/SMK masih banyak yang belum memahami Program Studi Sistem Informasi — termasuk kompetensi, prospek karier, dan pengalaman nyata selama kuliah.</p>
 </div>
 <div class="split-right">
-<div class="problem-row anim-item" style="transition-delay:.3s"><span class="icon">⚠️</span><p class="point">Minimnya literasi tentang dunia Teknologi Informasi di jenjang SMA/SMK</p></div>
-<div class="problem-row anim-item" style="transition-delay:.38s"><span class="icon">📉</span><p class="point">Risiko kesalahan pilihan jurusan & menurunnya motivasi belajar</p></div>
-<div class="problem-row anim-item" style="transition-delay:.46s"><span class="icon">🌐</span><p class="point">Era digital membuka peluang luas di industri, pemerintahan, dan wirausaha digital</p></div>
-<div class="problem-row anim-item" style="transition-delay:.54s"><span class="icon">🎯</span><p class="point">Mahasiswa aktif sebagai narasumber = gambaran realistis & relevan bagi calon mahasiswa</p></div>
-</div>
-</div>
-</div>
+<div class="problem-row anim-item" style="animation-delay:160ms"><span class="icon">⚠️</span><p class="point">Minimnya literasi tentang dunia Teknologi Informasi di jenjang SMA/SMK</p></div>
+<div class="problem-row anim-item" style="animation-delay:240ms"><span class="icon">📉</span><p class="point">Risiko kesalahan pilihan jurusan &amp; menurunnya motivasi belajar</p></div>
+<div class="problem-row anim-item" style="animation-delay:320ms"><span class="icon">🌐</span><p class="point">Era digital membuka peluang luas di industri, pemerintahan, dan wirausaha digital</p></div>
+<div class="problem-row anim-item" style="animation-delay:400ms"><span class="icon">🎯</span><p class="point">Mahasiswa aktif sebagai narasumber = gambaran realistis &amp; relevan bagi calon mahasiswa</p></div>
+</div></div></div>
 
 <!-- SLIDE 3: TUJUAN -->
 <div class="slide" data-slide="2">
 <span class="watermark">Sosialisasi Prodi SI — AMIKOM</span>
-<h2 class="anim-item" style="transition-delay:.1s">Tujuan Kegiatan</h2>
+<h2 class="anim-item" style="animation-delay:0ms">Tujuan Kegiatan</h2>
 <div class="grid5" style="margin-top:20px">
-<div class="card anim-item" style="transition-delay:.2s;border-top:3px solid #00C2FF"><div style="font:700 28px/1 var(--font-head);color:#00C2FF;margin-bottom:10px">01</div><p class="point" style="font-size:13px">Memberikan pemahaman menyeluruh tentang Prodi SI AMIKOM: kurikulum, kompetensi, dan prospek karier</p></div>
-<div class="card anim-item" style="transition-delay:.28s;border-top:3px solid #3B82F6"><div style="font:700 28px/1 var(--font-head);color:#3B82F6;margin-bottom:10px">02</div><p class="point" style="font-size:13px">Memperkenalkan keunggulan, fasilitas, prestasi, dan ekosistem inovatif AMIKOM</p></div>
-<div class="card anim-item" style="transition-delay:.36s;border-top:3px solid #7B2FBE"><div style="font:700 28px/1 var(--font-head);color:#7B2FBE;margin-bottom:10px">03</div><p class="point" style="font-size:13px">Berbagi pengalaman perkuliahan nyata, termasuk keterlibatan di komunitas riset TANAMI</p></div>
-<div class="card anim-item" style="transition-delay:.44s;border-top:3px solid #A855F7"><div style="font:700 28px/1 var(--font-head);color:#A855F7;margin-bottom:10px">04</div><p class="point" style="font-size:13px">Mendorong siswa untuk tertarik pada bidang TI dan mempertimbangkan AMIKOM sebagai pilihan PT</p></div>
-<div class="card anim-item" style="transition-delay:.52s;border-top:3px solid #EC4899"><div style="font:700 28px/1 var(--font-head);color:#EC4899;margin-bottom:10px">05</div><p class="point" style="font-size:13px">Melatih kemampuan komunikasi, presentasi, dan public speaking mahasiswa pelaksana</p></div>
-</div>
-</div>
+<div class="card anim-item" style="animation-delay:80ms;border-top:3px solid var(--cyan)"><div style="font:800 28px/1 var(--font-num);color:var(--cyan);margin-bottom:10px">01</div><p class="point" style="font-size:13px">Memberikan pemahaman menyeluruh tentang Prodi SI AMIKOM: kurikulum, kompetensi, dan prospek karier</p></div>
+<div class="card anim-item" style="animation-delay:160ms;border-top:3px solid #3B82F6"><div style="font:800 28px/1 var(--font-num);color:#3B82F6;margin-bottom:10px">02</div><p class="point" style="font-size:13px">Memperkenalkan keunggulan, fasilitas, prestasi, dan ekosistem inovatif AMIKOM</p></div>
+<div class="card anim-item" style="animation-delay:240ms;border-top:3px solid #8B5CF6"><div style="font:800 28px/1 var(--font-num);color:#8B5CF6;margin-bottom:10px">03</div><p class="point" style="font-size:13px">Berbagi pengalaman perkuliahan nyata, termasuk keterlibatan di komunitas riset TANAMI</p></div>
+<div class="card anim-item" style="animation-delay:320ms;border-top:3px solid var(--amber)"><div style="font:800 28px/1 var(--font-num);color:var(--amber);margin-bottom:10px">04</div><p class="point" style="font-size:13px">Mendorong siswa untuk tertarik pada bidang TI dan mempertimbangkan AMIKOM sebagai pilihan PT</p></div>
+<div class="card anim-item" style="animation-delay:400ms;border-top:3px solid #EC4899"><div style="font:800 28px/1 var(--font-num);color:#EC4899;margin-bottom:10px">05</div><p class="point" style="font-size:13px">Melatih kemampuan komunikasi, presentasi, dan public speaking mahasiswa pelaksana</p></div>
+</div></div>
 
-<!-- SLIDE 5: MATERI -->
+<!-- SLIDE 4: MATERI -->
+<div class="slide" data-slide="3">
+<span class="watermark">Sosialisasi Prodi SI — AMIKOM</span>
+<h2 class="anim-item" style="animation-delay:0ms">Materi Sosialisasi yang Disampaikan</h2>
+<div class="grid5" style="margin-top:28px">
+<div class="card anim-item" style="animation-delay:80ms;text-align:center"><div class="icon-lg">🏫</div><h3 style="font-size:14px">Profil &amp; Prodi</h3><p class="point" style="font-size:13px">Fakultas, Program Studi, dan International Program AMIKOM</p></div>
+<div class="card anim-item" style="animation-delay:160ms;text-align:center"><div class="icon-lg">🏗️</div><h3 style="font-size:14px">Ekosistem ACEP</h3><p class="point" style="font-size:13px">Fasilitas kampus dan Amikom Creative Economy Park</p></div>
+<div class="card anim-item" style="animation-delay:240ms;text-align:center"><div class="icon-lg">📺</div><h3 style="font-size:14px">Unit Usaha</h3><p class="point" style="font-size:13px">MSV Studio, Radio MQFM, RBTV, Time Excelindo, PT. GIT Solution, ABP</p></div>
+<div class="card anim-item" style="animation-delay:320ms;text-align:center"><div class="icon-lg">💰</div><h3 style="font-size:14px">Beasiswa</h3><p class="point" style="font-size:13px">Program beasiswa dan peluang program internasional</p></div>
+<div class="card anim-item" style="animation-delay:400ms;text-align:center"><div class="icon-lg">❓</div><h3 style="font-size:14px">Tanya Jawab</h3><p class="point" style="font-size:13px">Interaktif langsung dengan siswa Kelas 10 E5</p></div>
+</div></div>
+
+<!-- SLIDE 5: TANAMI -->
 <div class="slide" data-slide="4">
 <span class="watermark">Sosialisasi Prodi SI — AMIKOM</span>
-<h2 class="anim-item" style="transition-delay:.1s">Materi Sosialisasi yang Disampaikan</h2>
-<div class="grid5" style="margin-top:28px">
-<div class="card anim-item" style="transition-delay:.2s;text-align:center"><div class="icon-lg">🏫</div><h3 style="font-size:14px">Profil & Prodi</h3><p class="point" style="font-size:13px">Fakultas, Program Studi, dan International Program AMIKOM</p></div>
-<div class="card anim-item" style="transition-delay:.28s;text-align:center"><div class="icon-lg">🏗️</div><h3 style="font-size:14px">Ekosistem ACEP</h3><p class="point" style="font-size:13px">Fasilitas kampus dan Amikom Creative Economy Park</p></div>
-<div class="card anim-item" style="transition-delay:.36s;text-align:center"><div class="icon-lg">📺</div><h3 style="font-size:14px">Unit Usaha</h3><p class="point" style="font-size:13px">MSV Studio, Radio MQFM, RBTV, Time Excelindo, PT. GIT Solution, ABP</p></div>
-<div class="card anim-item" style="transition-delay:.44s;text-align:center"><div class="icon-lg">💰</div><h3 style="font-size:14px">Beasiswa</h3><p class="point" style="font-size:13px">Program beasiswa dan peluang program internasional</p></div>
-<div class="card anim-item" style="transition-delay:.52s;text-align:center"><div class="icon-lg">❓</div><h3 style="font-size:14px">Tanya Jawab</h3><p class="point" style="font-size:13px">Interaktif langsung dengan siswa Kelas 10 E5</p></div>
+<h2 class="anim-item" style="animation-delay:0ms">Komunitas TANAMI &amp; Prestasi</h2>
+<p class="subtitle anim-item" style="animation-delay:60ms">Riset &amp; Inovasi Mahasiswa AMIKOM</p>
+<div class="medal anim-item" style="animation-delay:120ms">🥈</div>
+<h3 class="anim-item" style="animation-delay:180ms;font-size:clamp(16px,2vw,24px);text-align:center">Juara 2 GEMASI 2026 — Divisi Aplikasi &amp; Sistem Informasi</h3>
+<div class="grid2" style="margin-top:20px">
+<div class="card anim-item" style="animation-delay:240ms"><div class="icon-lg">🌱</div><p class="point">Pengembangan alat IoT untuk pertanian urban dan rural</p></div>
+<div class="card anim-item" style="animation-delay:300ms"><div class="icon-lg">📱</div><p class="point">Aplikasi monitoring tanaman berbasis teknologi</p></div>
+<div class="card anim-item" style="animation-delay:360ms"><div class="icon-lg">🏆</div><p class="point">🥈 Juara 2 GEMASI 2026 — Divisi Aplikasi &amp; SI</p></div>
+<div class="card anim-item" style="animation-delay:420ms"><div class="icon-lg">🚀</div><p class="point">Mendapatkan tawaran dari ABP Incubator (Amikom Business Park)</p></div>
 </div>
+<div class="highlight-box anim-item" style="animation-delay:500ms;text-align:center;font-style:italic">Mahasiswa AMIKOM bukan hanya belajar teori — mereka berinovasi, berprestasi, dan siap masuk industri.</div>
 </div>
 
-<!-- SLIDE 6: TANAMI -->
+<!-- SLIDE 6: PELAKSANAAN -->
 <div class="slide" data-slide="5">
 <span class="watermark">Sosialisasi Prodi SI — AMIKOM</span>
-<h2 class="anim-item" style="transition-delay:.1s">Komunitas TANAMI & Prestasi</h2>
-<p class="subtitle anim-item" style="transition-delay:.15s">Riset & Inovasi Mahasiswa AMIKOM</p>
-<div class="medal anim-item" style="transition-delay:.25s">🥈</div>
-<h3 class="anim-item" style="transition-delay:.3s;font-size:clamp(16px,2vw,24px);text-align:center">Juara 2 GEMASI 2026 — Divisi Aplikasi & Sistem Informasi</h3>
-<div class="grid2" style="margin-top:20px">
-<div class="card anim-item" style="transition-delay:.38s"><div class="icon-lg">🌱</div><p class="point">Pengembangan alat IoT untuk pertanian urban dan rural</p></div>
-<div class="card anim-item" style="transition-delay:.44s"><div class="icon-lg">📱</div><p class="point">Aplikasi monitoring tanaman berbasis teknologi</p></div>
-<div class="card anim-item" style="transition-delay:.50s"><div class="icon-lg">🏆</div><p class="point">🥈 Juara 2 GEMASI 2026 — Divisi Aplikasi & SI</p></div>
-<div class="card anim-item" style="transition-delay:.56s"><div class="icon-lg">🚀</div><p class="point">Mendapatkan tawaran dari ABP Incubator (Amikom Business Park)</p></div>
-</div>
-<div class="highlight-box anim-item" style="transition-delay:.65s;text-align:center;font-style:italic">
-Mahasiswa AMIKOM bukan hanya belajar teori — mereka berinovasi, berprestasi, dan siap masuk industri.
-</div>
-</div>
-
-<!-- SLIDE 7: PELAKSANAAN -->
-<div class="slide" data-slide="6">
-<span class="watermark">Sosialisasi Prodi SI — AMIKOM</span>
-<h2 class="anim-item" style="transition-delay:.1s">Pelaksanaan Kegiatan</h2>
-<div class="info-bar anim-item" style="transition-delay:.18s">
+<h2 class="anim-item" style="animation-delay:0ms">Pelaksanaan Kegiatan</h2>
+<div class="info-bar anim-item" style="animation-delay:80ms">
 <div class="info-tag"><strong>Tanggal</strong>27 Februari 2026</div>
 <div class="info-tag"><strong>Platform</strong>Daring via Video Conference</div>
 <div class="info-tag"><strong>Audiens</strong>Kelas 10 E5 — SMAN 11 Yogyakarta</div>
 <div class="info-tag"><strong>Pendamping</strong>Ibu Sugiharti, S.Pd., M.M.</div>
 </div>
-<div class="timeline anim-item" style="transition-delay:.3s">
+<div class="timeline anim-item" style="animation-delay:160ms">
 <div class="phase"><div class="phase-num">1</div><h3>Persiapan</h3><p class="point" style="font-size:13px">Koordinasi tim, riset konten, pembuatan slide, koordinasi jadwal</p></div>
 <div class="phase"><div class="phase-num">2</div><h3>Pelaksanaan</h3><p class="point" style="font-size:13px">Presentasi interaktif, sesi tanya jawab langsung dengan siswa</p></div>
 <div class="phase"><div class="phase-num">3</div><h3>Evaluasi</h3><p class="point" style="font-size:13px">Evaluasi bersama, identifikasi kekurangan, penyusunan laporan</p></div>
 </div>
-<div class="grid2 anim-item" style="transition-delay:.45s;margin-top:20px">
-<div class="photo-rect" style="border:none; background:none; padding:0; overflow:hidden" data-photo-id="activity1"><img src="https://lh3.googleusercontent.com/u/0/d/1LIix8SOrEdM28WVwD6g_8uOi6NthgMhk" alt="Foto Kegiatan 1" style="width:100%; height:100%; object-fit:cover; border-radius:12px"></div>
-<div class="photo-rect" style="border:none; background:none; padding:0; overflow:hidden" data-photo-id="activity2"><img src="https://lh3.googleusercontent.com/u/0/d/1gAFHoy1M4EmURGpTjOJCowam-0nR3d9r" alt="Foto Kegiatan 2" style="width:100%; height:100%; object-fit:cover; border-radius:12px"></div>
-</div>
-</div>
+<div class="grid2 anim-item" style="animation-delay:280ms;margin-top:20px">
+<div class="photo-rect"><img src="https://lh3.googleusercontent.com/u/0/d/1LIix8SOrEdM28WVwD6g_8uOi6NthgMhk" alt="Foto Kegiatan 1"></div>
+<div class="photo-rect"><img src="https://lh3.googleusercontent.com/u/0/d/1gAFHoy1M4EmURGpTjOJCowam-0nR3d9r" alt="Foto Kegiatan 2"></div>
+</div></div>
 
-<!-- SLIDE 8: HAMBATAN -->
+<!-- SLIDE 7: HAMBATAN -->
+<div class="slide" data-slide="6">
+<span class="watermark">Sosialisasi Prodi SI — AMIKOM</span>
+<h2 class="anim-item" style="animation-delay:0ms">Hambatan &amp; Solusi</h2>
+<div class="grid2" style="margin-top:20px">
+<div class="card anim-item" style="animation-delay:80ms"><p class="point orange" style="font-weight:600">⚠️ Penyesuaian jadwal dengan agenda sekolah yang padat</p><p class="point blue" style="font-size:13px">💡 Komunikasi aktif via WhatsApp dengan Ibu Sugiharti dan fleksibilitas jadwal</p><p class="result-tag green">✅ Kegiatan terlaksana sesuai rencana</p></div>
+<div class="card anim-item" style="animation-delay:160ms"><p class="point orange" style="font-weight:600">⚠️ Kendala jaringan internet yang tidak stabil</p><p class="point blue" style="font-size:13px">💡 Mempersiapkan koneksi cadangan (hotspot pribadi)</p><p class="result-tag green">✅ Presentasi berjalan lancar</p></div>
+<div class="card anim-item" style="animation-delay:240ms"><p class="point orange" style="font-weight:600">⚠️ Tingkat pemahaman awal siswa kelas X yang beragam</p><p class="point blue" style="font-size:13px">💡 Materi disederhanakan dengan bahasa mudah, contoh konkret, dan visualisasi</p><p class="result-tag green">✅ Siswa antusias dan paham materi</p></div>
+<div class="card anim-item" style="animation-delay:320ms"><p class="point orange" style="font-weight:600">⚠️ Pengelolaan waktu presentasi yang kurang optimal</p><p class="point blue" style="font-size:13px">💡 Briefing sebelum acara dan penetapan pembagian waktu terstruktur</p><p class="result-tag green">✅ Semua materi tersampaikan</p></div>
+</div></div>
+
+<!-- SLIDE 8: FEEDBACK -->
 <div class="slide" data-slide="7">
 <span class="watermark">Sosialisasi Prodi SI — AMIKOM</span>
-<h2 class="anim-item" style="transition-delay:.1s">Hambatan & Solusi</h2>
-<div class="grid2" style="margin-top:20px">
-<div class="card anim-item" style="transition-delay:.2s"><p class="point orange" style="font-weight:600">⚠️ Penyesuaian jadwal dengan agenda sekolah yang padat</p><p class="point blue" style="font-size:13px">💡 Komunikasi aktif via WhatsApp dengan Ibu Sugiharti dan fleksibilitas jadwal</p><p class="result-tag green">✅ Kegiatan terlaksana sesuai rencana</p></div>
-<div class="card anim-item" style="transition-delay:.28s"><p class="point orange" style="font-weight:600">⚠️ Kendala jaringan internet yang tidak stabil</p><p class="point blue" style="font-size:13px">💡 Mempersiapkan koneksi cadangan (hotspot pribadi)</p><p class="result-tag green">✅ Presentasi berjalan lancar</p></div>
-<div class="card anim-item" style="transition-delay:.36s"><p class="point orange" style="font-weight:600">⚠️ Tingkat pemahaman awal siswa kelas X yang beragam</p><p class="point blue" style="font-size:13px">💡 Materi disederhanakan dengan bahasa mudah, contoh konkret, dan visualisasi</p><p class="result-tag green">✅ Siswa antusias dan paham materi</p></div>
-<div class="card anim-item" style="transition-delay:.44s"><p class="point orange" style="font-weight:600">⚠️ Pengelolaan waktu presentasi yang kurang optimal</p><p class="point blue" style="font-size:13px">💡 Briefing sebelum acara dan penetapan pembagian waktu terstruktur</p><p class="result-tag green">✅ Semua materi tersampaikan</p></div>
-</div>
-</div>
-
-<!-- SLIDE 9: FEEDBACK -->
-<div class="slide" data-slide="8">
-<span class="watermark">Sosialisasi Prodi SI — AMIKOM</span>
-<h2 class="anim-item" style="transition-delay:.1s">Feedback & Evaluasi</h2>
-<p class="subtitle anim-item" style="transition-delay:.15s">Ibu Sugiharti, S.Pd., M.M. — Guru Pendamping Kelas 10 E5, SMAN 11 Yogyakarta</p>
+<h2 class="anim-item" style="animation-delay:0ms">Feedback &amp; Evaluasi</h2>
+<p class="subtitle anim-item" style="animation-delay:60ms">Ibu Sugiharti, S.Pd., M.M. — Guru Pendamping Kelas 10 E5, SMAN 11 Yogyakarta</p>
 <div style="max-width:750px;width:100%;margin-top:20px">
-<div class="quote-icon anim-item" style="transition-delay:.2s">❝</div>
-<div class="anim-item" style="transition-delay:.28s"><p class="point">✅ Penyampaian materi sudah baik dan menyeluruh</p></div>
-<div class="anim-item" style="transition-delay:.34s"><p class="point">✅ Konten dinilai kreatif, inovatif, dan bernilai inspiratif</p></div>
-<div class="anim-item" style="transition-delay:.40s"><p class="point">✅ Materi relevan dan menarik bagi siswa kelas X</p></div>
-<div class="anim-item" style="transition-delay:.46s"><p class="point">✅ Struktur presentasi tersusun baik</p></div>
-<div class="suggestion-box anim-item" style="transition-delay:.54s">
+<div class="quote-icon anim-item" style="animation-delay:120ms">❝</div>
+<div class="anim-item" style="animation-delay:180ms"><p class="point">✅ Penyampaian materi sudah baik dan menyeluruh</p></div>
+<div class="anim-item" style="animation-delay:240ms"><p class="point">✅ Konten dinilai kreatif, inovatif, dan bernilai inspiratif</p></div>
+<div class="anim-item" style="animation-delay:300ms"><p class="point">✅ Materi relevan dan menarik bagi siswa kelas X</p></div>
+<div class="anim-item" style="animation-delay:360ms"><p class="point">✅ Struktur presentasi tersusun baik</p></div>
+<div class="suggestion-box anim-item" style="animation-delay:420ms">
 <p class="point" style="font-size:14px">💡 Perlu terus meningkatkan cara penyampaian agar lebih natural, tidak terlalu bergantung pada teks slide, agar interaksi dengan audiens lebih hidup.</p>
 </div>
-<p class="anim-item point" style="transition-delay:.62s;font-style:italic;color:var(--muted);margin-top:12px">Masukan ini menjadi refleksi penting: kemampuan public speaking dan penguasaan materi organik perlu terus diasah untuk dampak yang lebih besar ke depannya.</p>
-</div>
-</div>
+<p class="anim-item point" style="animation-delay:500ms;font-style:italic;color:var(--muted);margin-top:12px">Masukan ini menjadi refleksi penting: kemampuan public speaking dan penguasaan materi organik perlu terus diasah untuk dampak yang lebih besar ke depannya.</p>
+</div></div>
 
-<!-- SLIDE 10: KESIMPULAN -->
-<div class="slide" data-slide="9">
+<!-- SLIDE 9: KESIMPULAN -->
+<div class="slide" data-slide="8">
 <span class="watermark">Sosialisasi Prodi SI — AMIKOM</span>
-<h2 class="anim-item" style="transition-delay:.1s">Kesimpulan</h2>
+<h2 class="anim-item" style="animation-delay:0ms">Kesimpulan</h2>
 <div style="max-width:800px;width:100%;margin-top:16px">
-<div class="problem-row anim-item" style="transition-delay:.2s"><span class="icon">🎯</span><p class="point">Kegiatan sosialisasi berjalan baik dan disambut antusias oleh siswa Kelas 10 E5 SMAN 11 Yogyakarta</p></div>
-<div class="problem-row anim-item" style="transition-delay:.28s"><span class="icon">📚</span><p class="point">Mahasiswa memperoleh gambaran nyata dunia perkuliahan Sistem Informasi AMIKOM</p></div>
-<div class="problem-row anim-item" style="transition-delay:.36s"><span class="icon">💡</span><p class="point">Berkontribusi pada literasi digital dan membantu siswa mengambil keputusan pendidikan lebih matang</p></div>
-<div class="problem-row anim-item" style="transition-delay:.44s"><span class="icon">🤝</span><p class="point">Tim pelaksana berhasil mengasah kemampuan komunikasi, public speaking, dan kolaborasi tim</p></div>
+<div class="problem-row anim-item" style="animation-delay:80ms"><span class="icon">🎯</span><p class="point">Kegiatan sosialisasi berjalan baik dan disambut antusias oleh siswa Kelas 10 E5 SMAN 11 Yogyakarta</p></div>
+<div class="problem-row anim-item" style="animation-delay:160ms"><span class="icon">📚</span><p class="point">Mahasiswa memperoleh gambaran nyata dunia perkuliahan Sistem Informasi AMIKOM</p></div>
+<div class="problem-row anim-item" style="animation-delay:240ms"><span class="icon">💡</span><p class="point">Berkontribusi pada literasi digital dan membantu siswa mengambil keputusan pendidikan lebih matang</p></div>
+<div class="problem-row anim-item" style="animation-delay:320ms"><span class="icon">🤝</span><p class="point">Tim pelaksana berhasil mengasah kemampuan komunikasi, public speaking, dan kolaborasi tim</p></div>
 </div>
-<div class="closing-msg anim-item" style="transition-delay:.55s">Menjembatani dunia SMA dan dunia kuliah —<br>satu sosialisasi, seribu harapan. 🚀</div>
-<div class="anim-item" style="display:flex;justify-content:center;transition-delay:.65s;margin-top:12px;width:100%">
-<div class="photo-rect" style="max-width:320px; border:none; background:none; padding:0; overflow:hidden" data-photo-id="closing2">
-    <img src="https://lh3.googleusercontent.com/u/0/d/1YQSleVi43FHCm-XvFb2n6IhEYwXFA8Lj" alt="Foto Lampiran" style="width:100%; height:100%; object-fit:cover; border-radius:12px">
+<div class="closing-msg anim-item" style="animation-delay:400ms">Menjembatani dunia SMA dan dunia kuliah —<br>satu sosialisasi, seribu harapan. 🚀</div>
+<div class="anim-item" style="display:flex;justify-content:center;animation-delay:480ms;margin-top:12px;width:100%">
+<div class="photo-rect" style="max-width:320px"><img src="https://lh3.googleusercontent.com/u/0/d/1YQSleVi43FHCm-XvFb2n6IhEYwXFA8Lj" alt="Foto Lampiran"></div>
 </div>
-</div>
-<p class="footer-credit anim-item" style="transition-delay:.75s">Ahmad Syahri R. • Luqman Adiwidya • Indra Arya P. — Universitas AMIKOM Yogyakarta 2026</p>
+<p class="footer-credit anim-item" style="animation-delay:560ms">Ahmad Syahri R. • Luqman Adiwidya • Indra Arya P. — Universitas AMIKOM Yogyakarta 2026</p>
 </div>
 </div>
-<button class="nav-btn" id="prev-btn" aria-label="Previous">&#10094;</button>
-<button class="nav-btn" id="next-btn" aria-label="Next">&#10095;</button>
-<div id="dots"></div>
+<button class="nav-btn dimmed" id="prev-btn" aria-label="Previous">←</button>
+<button class="nav-btn" id="next-btn" aria-label="Next">→</button>
 <script>
 (function(){
 const slides=document.querySelectorAll('.slide'),total=slides.length;
 let cur=0,busy=false;
-const fill=document.getElementById('progress-fill'),counter=document.getElementById('slide-counter'),dotsC=document.getElementById('dots');
-// Dots
-for(let i=0;i<total;i++){const d=document.createElement('div');d.className='dot'+(i===0?' active':'');d.onclick=()=>go(i);dotsC.appendChild(d);}
-function go(n){
-if(busy||n===cur||n<0||n>=total)return;busy=true;
-slides[cur].classList.remove('active');slides[cur].classList.add(n>cur?'exit-left':'');
-setTimeout(()=>{slides[cur].classList.remove('exit-left');cur=n;slides[cur].classList.add('active');
-fill.style.width=((cur+1)/total*100)+'%';counter.textContent='Slide '+(cur+1)+' / '+total;
-dotsC.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
-runCounters();busy=false;},460);
+const fill=document.getElementById('progress-fill');
+const counter=document.getElementById('slide-counter');
+const prevBtn=document.getElementById('prev-btn');
+const nextBtn=document.getElementById('next-btn');
+
+function pad(n){return String(n).padStart(2,'0')}
+
+function updateUI(){
+  fill.style.width=((cur+1)/total*100)+'%';
+  counter.textContent=pad(cur+1)+' / '+pad(total);
+  prevBtn.classList.toggle('dimmed',cur===0);
+  if(cur===total-1){nextBtn.innerHTML='✓ Selesai';nextBtn.classList.add('finish');}
+  else{nextBtn.innerHTML='→';nextBtn.classList.remove('finish');}
 }
-function next(){go(cur+1)}function prev(){go(cur-1)}
-document.getElementById('next-btn').onclick=next;document.getElementById('prev-btn').onclick=prev;
-document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')next();else if(e.key==='ArrowLeft')prev();else if(e.key==='Escape')go(0);});
-// Swipe
-let sx=0,sy=0;document.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
-document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>50){dx<0?next():prev();}},{passive:true});
-// Counter animation
-function runCounters(){slides[cur].querySelectorAll('[data-count-to]').forEach(el=>{const t=+el.dataset.countTo,d=800;let s=performance.now();
-function step(now){const p=Math.min((now-s)/d,1);el.textContent=Math.round(t*p);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);});}
+
+function go(n,direction){
+  if(busy||n===cur||n<0||n>=total)return;
+  busy=true;
+  const dir=direction||(n>cur?1:-1);
+  const oldSlide=slides[cur];
+  const newSlide=slides[n];
+  // Remove any lingering animation classes
+  slides.forEach(s=>{s.classList.remove('enter-right','enter-left','exit-right','exit-left','active');s.style.opacity='';});
+  // Animate out old slide
+  oldSlide.classList.add(dir>0?'exit-left':'exit-right');
+  // Animate in new slide
+  newSlide.classList.add(dir>0?'enter-right':'enter-left');
+  newSlide.classList.add('active');
+  cur=n;
+  updateUI();
+  setTimeout(()=>{
+    oldSlide.classList.remove('exit-left','exit-right');
+    newSlide.classList.remove('enter-right','enter-left');
+    busy=false;
+  },460);
+}
+
+function next(){go(cur+1,1)}
+function prev(){go(cur-1,-1)}
+
+prevBtn.onclick=prev;
+nextBtn.onclick=next;
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' ')next();
+  else if(e.key==='ArrowLeft'||e.key==='Backspace')prev();
+  else if(e.key==='Home')go(0,-1);
+});
+
+// Touch/swipe
+let sx=0;
+document.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+document.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-sx;
+  if(Math.abs(dx)>50){dx<0?next():prev();}
+},{passive:true});
+
 // Particles
-const cv=document.getElementById('particles'),ctx=cv.getContext('2d');let W,H;const pts=[];
-function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight;}resize();window.addEventListener('resize',resize);
-for(let i=0;i<60;i++)pts.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*2+.5,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,a:Math.random()*.4+.1});
-function draw(){ctx.clearRect(0,0,W,H);pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
-ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(0,194,255,'+p.a+')';ctx.fill();});
-// Lines
-for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const d=Math.hypot(pts[i].x-pts[j].x,pts[i].y-pts[j].y);if(d<120){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='rgba(0,194,255,'+((.12-d/1000))+')';ctx.stroke();}}
-requestAnimationFrame(draw);}draw();
-// Init
-fill.style.width=(1/total*100)+'%';
+const cv=document.getElementById('particles'),ctx=cv.getContext('2d');
+let W,H;const pts=[];
+function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight}
+resize();window.addEventListener('resize',resize);
+for(let i=0;i<50;i++)pts.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,
+r:Math.random()*1.5+.5,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,a:Math.random()*.3+.05});
+function draw(){ctx.clearRect(0,0,W,H);
+pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;
+if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle='rgba(0,245,212,'+p.a+')';ctx.fill()});
+for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+const d=Math.hypot(pts[i].x-pts[j].x,pts[i].y-pts[j].y);
+if(d<130){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
+ctx.strokeStyle='rgba(0,245,212,'+(0.08*(1-d/130))+')';ctx.lineWidth=0.5;ctx.stroke()}}
+requestAnimationFrame(draw)}draw();
+
+updateUI();
 })();
 </script>
 </body>
